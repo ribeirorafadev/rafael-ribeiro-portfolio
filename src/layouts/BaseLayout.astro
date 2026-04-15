@@ -1,0 +1,70 @@
+---
+// Importação de componentes principais e configurações globais
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import SideBar from "../components/SideBar.astro";
+import { ViewTransitions } from "astro:transitions";
+
+import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
+
+const {
+  image,
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  includeSidebar = true,
+  sideBarActiveItemID,
+  ogType,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" data-theme="night" class="scroll-smooth">
+  <head>
+    <!-- Injeção dos metadados globais, fontes e ícones no cabeçalho -->
+    <BaseHead
+      title={title}
+      description={description}
+      image={image}
+      ogType={ogType}
+    />
+    {TRANSITION_API && <ViewTransitions />}
+  </head>
+  <body>
+    <!-- Fundo Moderno com Formas Orgânicas Animadas -->
+    <div
+      class="fixed inset-0 z-[-1] h-full w-full bg-[#0B0F19] overflow-hidden"
+    >
+      <div
+        class="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"
+      >
+      </div>
+      <div
+        class="absolute top-0 -right-4 w-72 h-72 bg-secondary rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"
+        style="animation-delay: 2s;"
+      >
+      </div>
+      <div
+        class="absolute -bottom-8 left-20 w-72 h-72 bg-accent rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"
+        style="animation-delay: 4s;"
+      >
+      </div>
+    </div>
+
+    <!-- Container principal usando o componente 'drawer' do DaisyUI para a barra lateral -->
+    <div class="drawer lg:drawer-open">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
+      <div class="drawer-content bg-transparent">
+        <!-- Cabeçalho (visível e utilizado apenas em dispositivos móveis) -->
+        <Header title={SITE_TITLE} />
+        <div class="md:flex md:justify-center animate-fade-in-up">
+          <!-- Área principal onde os componentes das seções (Hero, Skills, etc) são renderizados -->
+          <main class="p-6 pt-4 lg:max-w-[900px] max-w-[100vw] w-full">
+            <slot />
+          </main>
+        </div>
+      </div>
+      <!-- Barra lateral fixa com navegação e o seu perfil -->
+      {includeSidebar && <SideBar sideBarActiveItemID={sideBarActiveItemID} />}
+    </div>
+  </body>
+</html>

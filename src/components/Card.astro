@@ -1,0 +1,33 @@
+---
+// Propriedades que este componente recebe para construir cards visualmente consistentes e dinâmicos
+const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
+import { Image } from "astro:assets";
+---
+
+<!-- Estrutura de grid do Cartão e responsividade (mobile vs desktop) -->
+<div class="md:w-1/3 w-full">
+  <a href={url} target={target}>
+    <!-- Estilização dos efeitos de interatividade (hover), borda neon e sombra -->
+    <div
+      class="card bg-base-100 transition ease-in-out hover:shadow-xl mx-6 my-2 hover:shadow-primary/50 hover:border-primary border border-transparent"
+    >
+      <Image width={750} height={422} format="webp" src={img} alt={title} />
+      <div class="card-body">
+        <h2 class="card-title">
+          {title}
+          {badge && <div class="badge badge-secondary">{badge}</div>}
+        </h2>
+        <p>{desc}</p>
+        <!-- Iteração de todas as tecnologias atreladas ao cartão do projeto -->
+        <div class="card-actions justify-end">
+          {
+            tags &&
+              tags.map((tag: string) => (
+                <div class="badge badge-outline">{tag}</div>
+              ))
+          }
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

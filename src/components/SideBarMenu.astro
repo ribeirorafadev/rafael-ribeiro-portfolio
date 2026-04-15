@@ -1,0 +1,50 @@
+---
+// Recebe as propriedades passadas para o componente, se houver
+const { sideBarActiveItemID } = Astro.props;
+---
+
+<!-- Navegação âncora da SPA (Single Page Application) -->
+<ul class="relative z-10 menu grow shrink menu-md overflow-y-auto">
+  <li><a class="py-3 text-base" id="home" href="/#home">Início</a></li>
+  <li>
+    <a class="py-3 text-base" id="skills" href="/#skills">Habilidades</a>
+  </li>
+  <li>
+    <a class="py-3 text-base" id="projects" href="/#projects">Projetos</a>
+  </li>
+  <li>
+    <a class="py-3 text-base" id="education" href="/#education">Formação</a>
+  </li>
+  <li><a class="py-3 text-base" id="works" href="/#works">Experiência</a></li>
+  <li><a class="py-3 text-base" id="contact" href="/#contact">Contato</a></li>
+</ul>
+
+<script>
+  // Função nativa JavaScript que identifica automaticamente qual seção está visível na tela e acende o menu correspondente
+  document.addEventListener("DOMContentLoaded", () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            // Itera os links e altera as propriedades de cor/fundo de acordo com a visão do usuário
+            document.querySelectorAll(".menu a").forEach((link) => {
+              // Remove o destaque de todos os links
+              link.classList.remove("bg-base-300", "text-primary", "font-bold");
+              // Adiciona o destaque ao link correspondente à seção visível na tela
+              if (link.getAttribute("href") === `/#${id}`) {
+                link.classList.add("bg-base-300", "text-primary", "font-bold");
+              }
+            });
+          }
+        });
+      },
+      { threshold: 0.3, rootMargin: "0px 0px -40% 0px" },
+    );
+
+    // Pede ao observador para ficar de olho em todas as tags <section> que possuam um ID
+    document.querySelectorAll("section[id]").forEach((section) => {
+      observer.observe(section);
+    });
+  });
+</script>

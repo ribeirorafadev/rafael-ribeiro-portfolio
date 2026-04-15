@@ -1,0 +1,137 @@
+---
+// Seção sem lógica servidora requisitada, atua puramente como renderização de UI
+---
+
+<!-- Seção "Sobre Mim" - Área principal da aplicação com as apresentações iniciais -->
+<section id="home" class="pb-12 flex flex-col justify-top gap-8 mt-4">
+  <div>
+    <div
+      class="inline-block w-fit px-3 py-1 mb-4 text-xs font-semibold tracking-widest text-base-content/70 uppercase border border-base-content/20 rounded-full"
+    >
+      Sobre mim
+    </div>
+    <h1
+      class="text-4xl md:text-5xl font-extrabold bg-gradient-to-r from-blue-500 to-emerald-400 bg-clip-text text-transparent mb-6 pb-2"
+    >
+      Engenheiro de Software
+    </h1>
+    <p class="text-lg text-base-content/80 leading-relaxed">
+      Graduando em Engenharia de Software, possuo experiência comprovada em
+      Segurança da Informação e Infraestutura de TI.
+    </p>
+  </div>
+
+  <!-- Redes Sociais e CV -->
+  <div class="flex flex-wrap gap-1 items-center">
+    <a
+      href="https://github.com/ribeirorafadev"
+      target="_blank"
+      class="btn btn-ghost btn-square btn-sm h-10 w-10"
+      aria-label="GitHub"
+    >
+      <i class="fa-brands fa-github text-2xl"></i>
+    </a>
+    <a
+      href="https://www.linkedin.com/in/rafaelribeiroit/"
+      target="_blank"
+      class="btn btn-ghost btn-square btn-sm h-10 w-10"
+      aria-label="LinkedIn"
+    >
+      <i class="fa-brands fa-linkedin text-2xl"></i>
+    </a>
+    <a
+      href="/cv.pdf"
+      target="_blank"
+      class="btn bg-gradient-to-r from-gray-200/20 via-gray-400/20 to-gray-500/20 hover:from-gray-200/10 hover:via-gray-400/10 hover:to-gray-500/10 active:scale-95 active:from-gray-200/10 active:via-gray-400/10 active:to-gray-500/10 border border-gray-400/30 rounded-full px-5 ml-1 min-h-0 h-10 shadow-sm backdrop-blur-sm transition-all"
+      download="CV_Rafael_Ribeiro.pdf"
+    >
+      <i class="fa-solid fa-file-arrow-down text-primary text-base"></i>
+      <span class="font-extrabold text-primary text-sm">Baixar CV</span>
+    </a>
+  </div>
+
+  <!-- Caixa de Informações Adicionais (Status e Stacks) -->
+  <div
+    class="mt-4 p-6 rounded-2xl bg-base-200/50 border border-base-content/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-base-content/20"
+  >
+    <div class="flex items-center justify-between mb-4 flex-wrap gap-2">
+      <div class="flex items-center gap-3">
+        <span class="relative flex h-3 w-3">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"
+          ></span>
+        </span>
+        <span class="text-sm font-bold text-green-500">Disponível</span>
+      </div>
+      <div class="flex items-center gap-2 text-base-content/70 text-sm">
+        <div class="relative flex items-center justify-center h-4 w-4">
+          <i
+            class="fa-solid fa-location-dot text-red-500 absolute animate-ping opacity-75"
+          ></i>
+          <i class="fa-solid fa-location-dot text-red-500 relative"></i>
+        </div>
+        Barcarena, Pará
+      </div>
+    </div>
+
+    <p class="text-sm text-base-content/80 mb-5">
+      Construo sistemas e sites modernos, priorizando desempenho e segurança dos
+      dados.
+    </p>
+
+    <hr class="border-base-content/10 mb-5" />
+
+    <div>
+      <span
+        class="text-xs font-semibold uppercase tracking-wider text-base-content/50 block mb-3"
+        >Stacks Principais</span
+      >
+      <div class="flex gap-4">
+        <div class="tooltip tooltip-bottom" data-tip="Java">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg"
+            alt="Java"
+            class="w-8 h-8 hover:-translate-y-1 hover:scale-110 transition-all cursor-pointer"
+          />
+        </div>
+        <div>
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/spring/spring-original.svg"
+            alt="Spring"
+            class="w-8 h-8 hover:-translate-y-1 hover:scale-110 transition-all cursor-pointer"
+          />
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="Python">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+            alt="Python"
+            class="w-8 h-8 hover:-translate-y-1 hover:scale-110 transition-all cursor-pointer"
+          />
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="JavaScript">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+            alt="JavaScript"
+            class="w-8 h-8 hover:-translate-y-1 hover:scale-110 transition-all cursor-pointer"
+          />
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="Node.js">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg"
+            alt="Node.js"
+            class="w-8 h-8 hover:-translate-y-1 hover:scale-110 transition-all cursor-pointer"
+          />
+        </div>
+        <div class="tooltip tooltip-bottom" data-tip="MySQL">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg"
+            alt="MySQL"
+            class="w-8 h-8 hover:-translate-y-1 hover:scale-110 transition-all cursor-pointer"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
