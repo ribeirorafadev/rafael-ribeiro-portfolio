@@ -3,7 +3,7 @@
 import BaseHead from "../components/BaseHead.astro";
 import Header from "../components/Header.astro";
 import SideBar from "../components/SideBar.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 import { SITE_TITLE, SITE_DESCRIPTION, TRANSITION_API } from "../config";
 
@@ -27,7 +27,7 @@ const {
       image={image}
       ogType={ogType}
     />
-    {TRANSITION_API && <ViewTransitions />}
+    {TRANSITION_API && <ClientRouter />}
   </head>
   <body>
     <!-- Fundo Moderno com Formas Orgânicas Animadas -->
