@@ -24,7 +24,21 @@ module.exports = {
       },
     },
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("daisyui"),
+    function ({ addUtilities }) {
+      addUtilities({
+        ".tooltip-fluid": {
+          "--tooltip-color": "#ffffff",
+          "--tooltip-text-color": "#000000",
+        },
+        ".tooltip-fluid::before, .tooltip-fluid::after": {
+          "transition-delay": "0ms !important",
+        },
+      });
+    },
+  ],
   daisyui: {
     themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: "dark", // name of one of the included themes for dark mode

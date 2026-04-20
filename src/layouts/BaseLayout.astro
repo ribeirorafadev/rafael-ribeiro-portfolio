@@ -52,8 +52,10 @@ const {
 
     <!-- Container principal usando o componente 'drawer' do DaisyUI para a barra lateral -->
     <div class="drawer lg:drawer-open">
-      <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-      <div class="drawer-content bg-transparent">
+      <input id="my-drawer" type="checkbox" class="drawer-toggle peer" />
+      <div
+        class="drawer-content bg-transparent transition-all duration-500 ease-in-out peer-checked:blur-md peer-checked:brightness-75 peer-checked:[&_#header-name]:opacity-0 peer-checked:[&_#header-name]:scale-95 lg:peer-checked:blur-none lg:peer-checked:brightness-100 lg:peer-checked:[&_#header-name]:opacity-100 lg:peer-checked:[&_#header-name]:scale-100"
+      >
         <!-- Cabeçalho (visível e utilizado apenas em dispositivos móveis) -->
         <Header title={SITE_TITLE} />
         <div class="md:flex md:justify-center animate-fade-in-up">
