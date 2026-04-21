@@ -4,19 +4,51 @@ const { sideBarActiveItemID } = Astro.props;
 ---
 
 <!-- Navegação âncora da SPA (Single Page Application) -->
-<ul class="relative z-10 menu grow shrink menu-md overflow-y-auto">
-  <li><a class="py-3 text-base" id="home" href="/#home">Início</a></li>
-  <li>
-    <a class="py-3 text-base" id="skills" href="/#skills">Habilidades</a>
+<ul
+  class="relative z-10 menu grow shrink overflow-y-auto flex flex-col items-center lg:items-stretch w-full gap-2 lg:gap-0 mt-8 lg:mt-0"
+>
+  <li class="w-full max-w-[250px] lg:max-w-full">
+    <a
+      class="justify-center lg:justify-start py-4 lg:py-3 text-xl lg:text-base w-full"
+      id="home"
+      href="/#home">Início</a
+    >
   </li>
-  <li>
-    <a class="py-3 text-base" id="projects" href="/#projects">Projetos</a>
+  <li class="w-full max-w-[250px] lg:max-w-full">
+    <a
+      class="justify-center lg:justify-start py-4 lg:py-3 text-xl lg:text-base w-full"
+      id="projects"
+      href="/#projects">Projetos</a
+    >
   </li>
-  <li>
-    <a class="py-3 text-base" id="education" href="/#education">Formação</a>
+  <li class="w-full max-w-[250px] lg:max-w-full">
+    <a
+      class="justify-center lg:justify-start py-4 lg:py-3 text-xl lg:text-base w-full"
+      id="works"
+      href="/#works">Experiência</a
+    >
+    <li class="w-full max-w-[250px] lg:max-w-full">
+      <a
+        class="justify-center lg:justify-start py-4 lg:py-3 text-xl lg:text-base w-full"
+        id="skills"
+        href="/#skills">Habilidades</a
+      >
+    </li>
+    <li class="w-full max-w-[250px] lg:max-w-full">
+      <a
+        class="justify-center lg:justify-start py-4 lg:py-3 text-xl lg:text-base w-full"
+        id="education"
+        href="/#education">Formação</a
+      >
+    </li>
   </li>
-  <li><a class="py-3 text-base" id="works" href="/#works">Experiência</a></li>
-  <li><a class="py-3 text-base" id="contact" href="/#contact">Contato</a></li>
+  <li class="w-full max-w-[250px] lg:max-w-full">
+    <a
+      class="justify-center lg:justify-start py-4 lg:py-3 text-xl lg:text-base w-full"
+      id="contact"
+      href="/#contact">Contato</a
+    >
+  </li>
 </ul>
 
 <script>
@@ -53,6 +85,18 @@ const { sideBarActiveItemID } = Astro.props;
     // Pede ao observador para ficar de olho em todas as tags <section> que possuam um ID
     document.querySelectorAll("section[id]").forEach((section) => {
       observer.observe(section);
+    });
+
+    // Fecha o menu mobile automaticamente ao clicar em um link
+    document.querySelectorAll(".menu a").forEach((link) => {
+      link.addEventListener("click", () => {
+        const drawer = document.getElementById(
+          "my-drawer",
+        ) as HTMLInputElement | null;
+        if (drawer && window.innerWidth < 1024) {
+          drawer.checked = false;
+        }
+      });
     });
   });
 </script>

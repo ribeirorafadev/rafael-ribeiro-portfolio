@@ -12,44 +12,36 @@ const { sideBarActiveItemID } = Astro.props;
     for="my-drawer"
     class="drawer-overlay !bg-transparent transition-all duration-500"></label>
   <aside
-    class="relative px-2 pt-2 h-auto min-h-full w-[19rem] bg-transparent text-base-content flex flex-col overflow-hidden transition-colors duration-500"
+    class="relative px-2 pt-20 lg:pt-2 h-auto min-h-full w-full lg:w-[19rem] bg-transparent text-base-content flex flex-col overflow-hidden transition-all duration-500"
   >
-    <!-- Ícone de fechar o menu (Exclusivo para Mobile) -->
-    <div class="absolute top-4 left-3 lg:hidden z-50">
-      <label
-        for="my-drawer"
-        class="btn btn-ghost btn-square btn-sm"
-        aria-label="Fechar menu"
-      >
-        <i class="fa-solid fa-xmark text-xl"></i>
-      </label>
-    </div>
-
-    <div class="relative z-10 w-fit mx-auto mt-5 mb-2">
-      <a href="/">
-        <!-- Avatar e imagem de perfil estendida e animada ao passar o mouse -->
-        <div
-          class="avatar transition-all duration-300 ease-in-out hover:scale-[105%] active:scale-95 block m-auto"
-        >
-          <div class="w-[8.5rem]">
-            <Image
-              class="mask mask-circle"
-              format="webp"
-              width={300}
-              height={300}
-              src="/profile.webp"
-              alt="Profile image"
-            />
+    <!-- Esconde Avatar e Nome no Mobile -->
+    <div class="hidden lg:block">
+      <div class="relative z-10 w-fit mx-auto mt-5 mb-2">
+        <a href="/">
+          <!-- Avatar e imagem de perfil estendida e animada ao passar o mouse -->
+          <div
+            class="avatar transition-all duration-300 ease-in-out hover:scale-[105%] active:scale-95 block m-auto"
+          >
+            <div class="w-[8.5rem]">
+              <Image
+                class="mask mask-circle"
+                format="webp"
+                width={300}
+                height={300}
+                src="/profile.webp"
+                alt="Profile image"
+              />
+            </div>
           </div>
-        </div>
-      </a>
-    </div>
+        </a>
+      </div>
 
-    <!-- Nome em destaque com efeito de texto em gradiente -->
-    <div
-      class="block relative z-10 text-2xl font-extrabold tracking-tight text-center bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 bg-clip-text text-transparent mb-2"
-    >
-      Rafael Ribeiro
+      <!-- Nome em destaque com efeito de texto em gradiente -->
+      <div
+        class="block relative z-10 text-2xl font-extrabold tracking-tight text-center bg-gradient-to-r from-gray-200 via-gray-400 to-gray-500 bg-clip-text text-transparent mb-2"
+      >
+        Rafael Ribeiro
+      </div>
     </div>
 
     <!-- Menu dinâmico de navegação entre as seções -->

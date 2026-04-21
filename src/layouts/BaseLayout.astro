@@ -18,7 +18,11 @@ const {
 ---
 
 <!doctype html>
-<html lang="pt-BR" data-theme="night" class="scroll-smooth">
+<html
+  lang="pt-BR"
+  data-theme="night"
+  class="scroll-smooth scroll-pt-24 lg:scroll-pt-12"
+>
   <head>
     <!-- Injeção dos metadados globais, fontes e ícones no cabeçalho -->
     <BaseHead
@@ -54,11 +58,13 @@ const {
     <div class="drawer lg:drawer-open">
       <input id="my-drawer" type="checkbox" class="drawer-toggle peer" />
       <div
-        class="drawer-content bg-transparent transition-all duration-500 ease-in-out peer-checked:blur-md peer-checked:brightness-75 peer-checked:[&_#header-name]:opacity-0 peer-checked:[&_#header-name]:scale-95 lg:peer-checked:blur-none lg:peer-checked:brightness-100 lg:peer-checked:[&_#header-name]:opacity-100 lg:peer-checked:[&_#header-name]:scale-100"
+        class="drawer-content bg-transparent transition-all duration-500 ease-in-out peer-checked:[&_.main-wrapper]:blur-lg peer-checked:[&_.main-wrapper]:brightness-50 lg:peer-checked:[&_.main-wrapper]:blur-none lg:peer-checked:[&_.main-wrapper]:brightness-100 peer-checked:[&_.fa-bars]:hidden peer-checked:[&_.fa-xmark]:!block"
       >
         <!-- Cabeçalho (visível e utilizado apenas em dispositivos móveis) -->
         <Header title={SITE_TITLE} />
-        <div class="md:flex md:justify-center animate-fade-in-up">
+        <div
+          class="main-wrapper md:flex md:justify-center animate-fade-in-up transition-all duration-500"
+        >
           <!-- Área principal onde os componentes das seções (Hero, Skills, etc) são renderizados -->
           <main class="p-6 pt-4 lg:max-w-[900px] max-w-[100vw] w-full">
             <slot />
