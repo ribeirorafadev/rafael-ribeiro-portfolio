@@ -1,13 +1,64 @@
 ---
-
+const experiences = [
+  {
+    role: "Autônomo em TI",
+    company: "AR TECH",
+    period: "Momento Atual",
+    description:
+      "Atuação autônoma prestando serviços de infraestrutura de TI, manutenção de sistemas, segurança da informação e suporte técnico especializado.",
+  },
+  {
+    role: "Assistente de TI II",
+    company: "Planeja TI",
+    period: "Ano - Ano",
+    description:
+      "Suporte técnico avançado, administração de redes e infraestrutura, monitoramento de sistemas e resolução de chamados.",
+  },
+  {
+    role: "Assistente de TI JR",
+    company: "Sambazon",
+    period: "Ano - Ano",
+    description:
+      "Suporte técnico aos usuários, manutenção preventiva e corretiva de hardware e software, e auxílio nas rotinas do departamento de TI.",
+  },
+];
 ---
 
 <!-- Menu - Experiência -->
-<section id="works" class="pb-12 flex flex-col justify-top gap-8 mt-4">
-  <div
-    class="inline-block w-fit px-3 py-1 mb-4 text-xs font-semibold tracking-widest text-base-content/70 uppercase border border-base-content/20 rounded-full"
-  >
-    Experiência
+<section
+  id="works"
+  class="pb-12 flex flex-col items-center md:items-start text-center md:text-left gap-8 mt-4"
+>
+  <div class="flex flex-col items-center md:items-start">
+    <div
+      class="inline-block w-fit px-3 py-1 mb-2 text-xs font-semibold tracking-widest text-base-content/70 uppercase border border-base-content/20 rounded-full"
+    >
+      Experiência
+    </div>
   </div>
-  <p class="text-base-content/80">Em construção...</p>
+
+  <div class="w-full flex flex-col gap-6">
+    {
+      experiences.map((exp) => (
+        <div class="w-full p-6 rounded-2xl bg-base-200/50 border border-base-content/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-base-content/20 flex flex-col items-center md:items-start text-center md:text-left gap-4">
+          <div class="flex flex-col md:flex-row md:justify-between items-center md:items-start w-full gap-3">
+            <div class="flex flex-col items-center md:items-start">
+              <h3 class="text-lg md:text-xl font-bold text-base-content">
+                {exp.role}
+              </h3>
+              <span class="text-sm font-bold bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent mt-1">
+                {exp.company}
+              </span>
+            </div>
+            <span class="px-3 py-1 mt-1 md:mt-0 text-xs font-medium rounded-full bg-base-100/50 border border-base-content/10 text-base-content/70 whitespace-nowrap shadow-inner">
+              {exp.period}
+            </span>
+          </div>
+          <p class="text-sm text-base-content/80 leading-relaxed">
+            {exp.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
 </section>
