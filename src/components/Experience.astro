@@ -1,25 +1,34 @@
 ---
 const experiences = [
   {
-    role: "Autônomo em TI",
+    role: "Consultor em TI",
     company: "AR TECH",
-    period: "Momento Atual",
-    description:
-      "Atuação autônoma prestando serviços de infraestrutura de TI, manutenção de sistemas, segurança da informação e suporte técnico especializado.",
+    period: "Atualmente",
+    highlights: [
+      "Fundador e Consultor Técnico da AR Tech.",
+      "Helpdesk e ServiceDesk para micro e pequenas empresas.",
+      "Hardening de endpoints, soluções de backup e mitigação de ameaças.",
+    ],
   },
   {
     role: "Assistente de TI II",
-    company: "Planeja TI",
-    period: "Ano - Ano",
-    description:
-      "Suporte técnico avançado, administração de redes e infraestrutura, monitoramento de sistemas e resolução de chamados.",
+    company: "PLANEJA TI",
+    period: "Abr 2025 - Jul 2025",
+    highlights: [
+      "Helpdesk e Service Desk com garantia de SLA pelo Jira.",
+      "Gestão de acessos pelo painel Microsoft 365 Admin.",
+      "Gestão de ativos utilizando GLPI.",
+    ],
   },
   {
-    role: "Assistente de TI JR",
-    company: "Sambazon",
-    period: "Ano - Ano",
-    description:
-      "Suporte técnico aos usuários, manutenção preventiva e corretiva de hardware e software, e auxílio nas rotinas do departamento de TI.",
+    role: "Técnico de Suporte",
+    company: "CLICKNET",
+    period: "Dez 2025 - Abr 2024",
+    highlights: [
+      "Troubleshooting de redes domésticas e empresariais.",
+      "Diagnóstico de latência, perda de pacotes e falhas físicas.",
+      "Monitoramento de infraestrutura utlizando Zabbix.",
+    ],
   },
 ];
 ---
@@ -27,9 +36,9 @@ const experiences = [
 <!-- Menu - Experiência -->
 <section
   id="works"
-  class="pb-12 flex flex-col items-center md:items-start text-center md:text-left gap-8 mt-4"
+  class="pb-12 flex flex-col items-start text-left gap-8 mt-4"
 >
-  <div class="flex flex-col items-center md:items-start">
+  <div class="flex w-full flex-col items-center md:items-start">
     <div
       class="inline-block w-fit px-3 py-1 mb-2 text-xs font-semibold tracking-widest text-base-content/70 uppercase border border-base-content/20 rounded-full"
     >
@@ -40,23 +49,65 @@ const experiences = [
   <div class="w-full flex flex-col gap-6">
     {
       experiences.map((exp) => (
-        <div class="w-full p-6 rounded-2xl bg-base-200/50 border border-base-content/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-base-content/20 flex flex-col items-center md:items-start text-center md:text-left gap-4">
-          <div class="flex flex-col md:flex-row md:justify-between items-center md:items-start w-full gap-3">
-            <div class="flex flex-col items-center md:items-start">
-              <h3 class="text-lg md:text-xl font-bold text-base-content">
-                {exp.role}
+        <div class="relative pl-8 group">
+          <span
+            class="absolute left-3 top-1 h-3 w-3 -translate-x-1/2 rounded-full bg-base-content/25 border border-base-content/30 transition-colors duration-300 group-hover:bg-sky-400 group-active:bg-sky-400"
+            aria-hidden="true"
+          />
+          <span
+            class="absolute left-3 top-6 bottom-0 w-px bg-base-content/25"
+            aria-hidden="true"
+          />
+
+          <div class="w-full p-6 rounded-2xl bg-base-200/80 border border-base-content/10 shadow-sm backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-sky-400/40 hover:bg-base-200 flex flex-col items-start text-left gap-4">
+            <div class="flex w-full flex-col items-center text-center gap-4 md:gap-2 md:flex-row md:items-center md:justify-between md:text-left">
+              <h3
+                class={`flex w-full min-w-0 flex-nowrap items-baseline justify-center leading-tight md:w-auto md:justify-start ${
+                  exp.role === "Técnico de Suporte" ? "gap-1" : "gap-2"
+                }`}
+              >
+                <span
+                  class={`font-bold text-base-content ${
+                    exp.role === "Técnico de Suporte"
+                      ? "text-[0.9rem] md:text-lg whitespace-nowrap md:whitespace-normal"
+                      : "text-[0.95rem] md:text-lg"
+                  }`}
+                >
+                  {exp.role}
+                </span>
+                <span class="text-base-content/30">/</span>
+                <span
+                  class={`font-bold text-base-content/50 ${
+                    exp.role === "Técnico de Suporte"
+                      ? "text-[0.75rem] md:text-base whitespace-nowrap md:whitespace-normal"
+                      : "text-[0.8rem] md:text-base truncate"
+                  }`}
+                >
+                  {exp.company}
+                </span>
               </h3>
-              <span class="text-sm font-bold bg-gradient-to-r from-blue-500 to-emerald-500 bg-clip-text text-transparent mt-1">
-                {exp.company}
+
+              <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[0.65rem] md:text-[0.68rem] font-medium bg-base-content/25 border border-base-content/25 text-base-content/75 self-center md:self-auto md:ml-auto">
+                <i
+                  class="fa-solid fa-calendar-days text-[0.75rem]"
+                  aria-hidden="true"
+                />
+                <span>{exp.period}</span>
               </span>
             </div>
-            <span class="px-3 py-1 mt-1 md:mt-0 text-xs font-medium rounded-full bg-base-100/50 border border-base-content/10 text-base-content/70 whitespace-nowrap shadow-inner">
-              {exp.period}
-            </span>
+
+            <ul class="mt-2 ml-0 space-y-2">
+              {exp.highlights.map((hl) => (
+                <li class="flex items-start gap-3 text-sm text-base-content/90">
+                  <i
+                    class="fa-solid fa-circle text-[0.4rem] mt-2 text-primary"
+                    aria-hidden="true"
+                  />
+                  <span class="text-left">{hl}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p class="text-sm text-base-content/80 leading-relaxed">
-            {exp.description}
-          </p>
         </div>
       ))
     }
